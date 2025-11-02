@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-cave: #0b0b0a; /* noir de cave */
+  --ivory-aged: #f1ebdf; /* ivoire vieilli */
+  --copper: #b87333; /* cuivre */
+  --iberian-red: #8a1e1e; /* rouge ibérique */
+  --wine-gold: #caa660; /* reflet doré du vin */
+
+  /* Palette texte (light) */
+  --foreground-strong: #0b0b0a; /* max contraste */
+  --foreground: #1a1a18;        /* défaut */
+  --foreground-muted: #3d3d38;   /* atténué mais AA sur ivoire */
+  --on-accent: #0b0b0a;         /* texte sur boutons accent */
+
+  /* Fond courant (switché en dark) */
+  --background: var(--ivory-aged);
+
+  --grain-0: rgba(0,0,0,0.05);
+  --glass-bg: rgba(241, 235, 223, 0.06);
+  --glass-brd: rgba(0,0,0,0.12);
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Palette texte (dark) */
+    --foreground-strong: #f6f6f0;
+    --foreground: #efefe8;
+    --foreground-muted: #cfcfc8;
+    --on-accent: #0b0b0a; /* noir lisible sur cuivre */
+
+    --background: var(--bg-cave);
+    --glass-bg: rgba(20, 20, 18, 0.4);
+    --glass-brd: rgba(255,255,255,0.12);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--copper);
+  --color-accent-2: var(--iberian-red);
+  --color-accent-3: var(--wine-gold);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  text-rendering: optimizeLegibility;
 }
+
+/* Utilitaires de contraste */
+.text-strong { color: var(--foreground-strong); }
+.text-muted { color: var(--foreground-muted); }
+
+/* Skip link accessible */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 50;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-brd);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  transition: top .2s ease, opacity .2s ease;
+  opacity: 0;
+}
+.skip-link:focus {
+  top: 0.75rem;
+  opacity: 1;
+}
+
+/* Grain subtil désactivé pour le hero (lisibilité) */
+/*
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.035"/></svg>');
+}
+*/
+
+/* Utilitaires esthétiques */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-brd);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 40px rgba(0,0,0,.12);
+}
+
+.type-display { font-family: var(--font-display), Georgia, serif; }
+.type-sans { font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+
+/* Split reveal helpers */
+.reveal-word { display: inline-block; overflow: hidden; }
+.reveal-word > span { display: inline-block; transform: translateY(100%); }
+
+/* Focus visible for A11Y */
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 4px; }
