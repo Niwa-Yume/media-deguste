@@ -18,8 +18,13 @@ export const metadata: Metadata = {
       "Un média où le design, le goût et l’artisanat se rencontrent. Genève n’a jamais eu meilleur goût.",
     url: "https://la-deguste.example",
     siteName: "La Déguste",
-    images: [{ url: "/vercel.svg", width: 1200, height: 630, alt: "La Déguste" }],
+    images: [{ url: "/image/logo.png", width: 1200, height: 630, alt: "La Déguste" }],
     type: "website",
+  },
+  icons: {
+    icon: [{ url: "/image/logo.png", type: "image/png", sizes: "192x192" }],
+    apple: "/image/logo.png",
+    shortcut: "/image/logo.png",
   },
   robots: { index: true, follow: true },
 };
