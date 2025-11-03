@@ -16,10 +16,6 @@ export default function Signature() {
         </motion.blockquote>
         <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm opacity-75">
           <span className="text-strong">© {new Date().getFullYear()} La Déguste</span>
-          <nav className="flex flex-wrap gap-4">
-            <a href="#" className="hover:opacity-100 opacity-80 text-strong">Instagram</a>
-            <a href="#" className="hover:opacity-100 opacity-80 text-strong">Newsletter</a>
-          </nav>
         </div>
       </div>
     </footer>
