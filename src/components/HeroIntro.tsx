@@ -45,8 +45,21 @@ export default function HeroIntro() {
           style={{ textShadow: "0 1px 0 rgba(0,0,0,.04)" }}
         >
           Le goût. L'art. Le temps.{" "}
-          <span className="block">Bienvenue à La Déguste.</span>
         </motion.h1>
+        <motion.span
+          className="type-display mx-auto leading-[1.05] max-w-3xl text-[clamp(1.25rem,4vw,2rem)] md:text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold text-strong block mt-2"
+          initial={{
+            opacity: 0,
+            y: 10,
+            filter: prefersReduced ? "blur(0px)" : "blur(4px)",
+          }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.35 }}
+          style={{ textShadow: "0 1px 0 rgba(0,0,0,.04)" }}
+        >
+          Bienvenue à La Déguste.
+        </motion.span>
+
         <motion.div
           className="mt-7 md:mt-9 flex items-center justify-center"
           initial={{ opacity: 0 }}
