@@ -44,7 +44,8 @@ export default function HeroIntro() {
           transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1], delay: 0.2 }}
           style={{ textShadow: "0 1px 0 rgba(0,0,0,.04)" }}
         >
-          Le goût. L’art. Le temps. — Bienvenue à La Déguste.
+          Le goût. L'art. Le temps.{" "}
+          <span className="block">Bienvenue à La Déguste.</span>
         </motion.h1>
         <motion.div
           className="mt-7 md:mt-9 flex items-center justify-center"

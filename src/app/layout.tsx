@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "La Déguste — Le goût. L’art. Le temps.",
+  title: "La Déguste Le goût. L’art. Le temps.",
   description:
     "La Déguste, média digital genevois dédié à la gastronomie haut de gamme : artisans, vins, charcuterie, fromages, lieux d’exception.",
   metadataBase: new URL("https://la-deguste.example"),
