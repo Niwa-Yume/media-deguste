@@ -34,7 +34,7 @@ export default function HeroIntro() {
         </motion.p>
         <motion.h1
           id="hero-title"
-          className="type-display mx-auto leading-[1.05] max-w-4xl text-[clamp(2.25rem,6vw,4.75rem)] md:text-[clamp(3.25rem,5vw,6.25rem)] font-semibold text-strong"
+          className="type-display mx-auto leading-[1.05] max-w-5xl text-[clamp(2.25rem,6vw,4.75rem)] md:text-[clamp(3.25rem,5vw,6.25rem)] font-semibold text-strong"
           initial={{
             opacity: 0,
             y: 14,

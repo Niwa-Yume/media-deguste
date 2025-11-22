@@ -3,9 +3,6 @@ import SplitText from "./SplitText";
 import { motion } from "framer-motion";
 
 export default function Manifeste() {
-  const videoFileName = "vidéo déguste.mp4"; // nom avec accents/espaces tel que présent dans /public/video
-  const videoSrc = `/video/${encodeURIComponent(videoFileName)}`; // encoder pour un chemin URL sûr
-
   return (
     <section className="relative py-24 md:py-40 px-6">
       {/* Texture sensorielle subtile inspirée du vin/jambon */}
@@ -45,23 +42,18 @@ export default function Manifeste() {
           text={"Et qu’à Genève, il y a des artisans qui sculptent le temps."}
           delay={0.25}
         />
-        {/* Bloc média: vidéo immersive courte, silencieuse, en boucle */}
+        {/* Bloc média: image de charcuterie artisanale */}
         <motion.div
-          className="mt-10 rounded-2xl overflow-hidden soft-shadow bg-black/60"
+          className="mt-10 rounded-2xl overflow-hidden soft-shadow"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.7 }}
         >
           <div className="relative aspect-video">
-            <video
-              src={videoSrc}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Geste artisanal – La Déguste"
+            <img
+              src="/chactuterie de luxe.webp"
+              alt="Charcuterie artisanale – La Déguste"
               className="absolute inset-0 h-full w-full object-cover"
             />
             {/* Dégradé de bas très léger pour renforcer le contraste du texte si on en ajoute plus tard */}
